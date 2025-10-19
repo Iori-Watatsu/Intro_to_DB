@@ -21,9 +21,11 @@ CREATE TABLE IF NOT EXISTS Customers (
 
 CREATE TABLE IF NOT EXISTS Orders (
     order_id INT PRIMARY KEY AUTO_INCREMENT,
+    order_date DATE NOT NULL,
     customer_id INT NOT NULL,
-    order_date DATE,
-    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+    amount DECIMAL(10,2) NOT NULL,
+    -- add the foreign key constraint
+    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
 );
 
 CREATE TABLE IF NOT EXISTS Order_details (
