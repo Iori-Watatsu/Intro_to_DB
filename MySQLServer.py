@@ -3,12 +3,13 @@ from mysql.connector import Error
 
 def create_database():
     connection = None
+    cursor = None
     try:
-        # Connect to MySQL Server
+        # Connect to MySQL server (ALX environment default)
         connection = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="Kimmethkabhejane=05"  
+            password=""
         )
 
         if connection.is_connected():
@@ -20,14 +21,11 @@ def create_database():
         print(f"Error while connecting to MySQL: {e}")
 
     finally:
-        if connection is not None and connection.is_connected():
-            try:
-                cursor.close()
-            except NameError:
-                pass
+        if cursor:
+            cursor.close()
+        if connection and connection.is_connected():
             connection.close()
             print("MySQL connection is closed.")
-
 
 if __name__ == "__main__":
     create_database()
