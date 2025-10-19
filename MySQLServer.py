@@ -8,7 +8,7 @@ def create_database():
         connection = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="Kimmethkabhejane=05"  # 🔹 Replace with your MySQL password
+            password="Kimmethkabhejane=05"  
         )
 
         if connection.is_connected():
@@ -21,9 +21,13 @@ def create_database():
 
     finally:
         if connection is not None and connection.is_connected():
-            cursor.close()
+            try:
+                cursor.close()
+            except NameError:
+                pass
             connection.close()
             print("MySQL connection is closed.")
+
 
 if __name__ == "__main__":
     create_database()
