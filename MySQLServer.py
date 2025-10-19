@@ -4,7 +4,7 @@ try:
     connection = mysql.connector.connect(
         host="localhost",
         user="root",
-        password=""  # ALX default password
+        password="" 
     )
     cursor = connection.cursor()
     cursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store;")
