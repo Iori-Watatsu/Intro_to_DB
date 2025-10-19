@@ -4,7 +4,11 @@ try:
     connection = mysql.connector.connect(
         host="localhost",
         user="root",
+<<<<<<< HEAD
         password="" 
+=======
+        password=""
+>>>>>>> ba0b51a (Recommit all)
     )
     cursor = connection.cursor()
     cursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store;")
@@ -17,5 +21,9 @@ finally:
     if 'cursor' in locals():
         cursor.close()
     if 'connection' in locals() and connection.is_connected():
+<<<<<<< HEAD
         connection.close()
         
+=======
+        connection.close()
+>>>>>>> ba0b51a (Recommit all)
